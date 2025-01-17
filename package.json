@@ -1,20 +1,43 @@
 {
-  "name": "react-storybook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "josp-react-storybook",
+  "private": false,
+  "version": "0.0.1-rc3",
   "type": "module",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "react",
+    "dev",
+    "josp"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/javierosa/react-storybook-vite/deployments/github-pages",
+  "repository": {
+    "url": "https://github.com/javierosa/react-storybook-vite",
+    "type": "git"
+  },
+  "files": [
+    "dist/"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "scripts": {
     "dev": "npm run storybook",
     "dev:project": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run clean && tsc -b && npm run copyfiles",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "build-storybook": "storybook build",
+    "clean": "rimraf dist/",
+    "copyfiles": "copyfiles -u 1 src/**/*.css dist/"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
@@ -30,11 +53,16 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "chromatic": "^11.25.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "eslint-plugin-storybook": "^0.11.2",
     "globals": "^15.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rimraf": "^6.0.1",
     "storybook": "^8.5.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
