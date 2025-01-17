@@ -10,6 +10,9 @@
     "dev",
     "josp"
   ],
+  "engines": {
+    "node": ">=12.10.0"
+  },
   "license": "MIT",
   "homepage": "https://github.com/javierosa/react-storybook-vite/deployments/github-pages",
   "repository": {
